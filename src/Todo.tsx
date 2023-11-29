@@ -71,7 +71,8 @@ export function Todo() {
     setNewTaskName("");
   };
 
-  const handleClickClear = (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => {
+  // e: JSX.TargetedMouseEvent<HTMLButtonElement>
+  const handleClickClear = () => {
     setTreeNode({ ...treeNode, children: [] });
   };
 
@@ -84,7 +85,8 @@ export function Todo() {
     }
   };
 
-  const handleDragEnd = (e: JSX.TargetedDragEvent<HTMLDivElement>) => {
+  // e: JSX.TargetedDragEvent<HTMLDivElement>
+  const handleDragEnd = () => {
     setDraggingId(null);
   };
 

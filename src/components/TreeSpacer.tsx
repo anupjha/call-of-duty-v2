@@ -1,5 +1,5 @@
 import { JSX } from "preact/jsx-runtime";
-import { TreeNode } from "../app";
+import { TreeNode } from "../Todo";
 import { INDENT_REM } from "../constants";
 
 type SpacerPosition = "first" | "last" | "theOthers";
