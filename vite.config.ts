@@ -4,7 +4,7 @@ import preact from "@preact/preset-vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/<repo>/",
+  base: "/call-of-duty-v2/",
   plugins: [
     preact(),
     VitePWA({
