@@ -77,7 +77,7 @@ export const TreeNodeItem = (props: TreeNodeItemProps) => {
           </div>
           <div class="flex-column mr-2">
             <button class="m-auto bg-transparent border-solid border-1" onClick={handleDelete} data-node-id={node.id}>
-              x
+              X
             </button>
           </div>
         </div>

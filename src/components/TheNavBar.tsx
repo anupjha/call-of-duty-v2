@@ -22,6 +22,7 @@ export default function TheNavBar({ theme }: { theme: Signal<Theme> }) {
         <Link href="/" class="text-decoration-none h-6">
           <h1 class="m-0 h-6 text-center text-medium text-primary font-weight-600 hover-bg-link cursor-pointer">
             CALL of DUTY
+            <span class="text-tiny">An office warfare</span>
           </h1>
         </Link>
       </div>

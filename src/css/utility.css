@@ -151,6 +151,13 @@
 .mt-24 {
   margin-top: 6rem;
 }
+.mr-0 {
+  margin-right: 0;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
 
 .p-1 {
   padding: 0.25rem;
@@ -267,6 +274,10 @@
   text-align: center;
 }
 
+.text-tiny {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+}
 .text-small {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -365,25 +376,25 @@
   border-top-width: 1px;
 }
 
-.divide-solid>*+* {
+.divide-solid > * + * {
   border-style: solid;
 }
 
-.divide-x-1>*+* {
+.divide-x-1 > * + * {
   border-top-width: 0;
   border-left-width: 1px;
   border-right-width: 0;
   border-bottom-width: 0;
 }
 
-.divide-y-1>*+* {
+.divide-y-1 > * + * {
   border-top-width: 1px;
   border-left-width: 0;
   border-right-width: 0;
   border-bottom-width: 0;
 }
 
-.divide-color-primary>*+* {
+.divide-color-primary > * + * {
   border-color: var(--color-border-primary);
 }
 
@@ -549,4 +560,12 @@
 
 .relative {
   position: relative;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.hover-primary:hover {
+  background-color: var(--color-gray-50);
 }

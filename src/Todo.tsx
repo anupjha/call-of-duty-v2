@@ -191,9 +191,6 @@ export function Todo() {
           </div>
         </div>
       </div>
-      <div class="text-center h-6 text-secondary text-small">
-        <a href="https://github.com/sakihet/dnd-tree-todo">GitHub</a>
-      </div>
     </div>
   );
 }
