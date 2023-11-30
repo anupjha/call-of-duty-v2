@@ -78,8 +78,8 @@ export default function PageIndex({ appState }: { appState: Signal<State> }) {
 
   const STORAGE_LIMIT = 5200000;
   const getSize = (): number => {
-    if (localStorage["data"]) {
-      return new Blob(Object.values(localStorage["data"])).size;
+    if (localStorage["boards"]) {
+      return new Blob(Object.values(localStorage["boards"])).size;
     } else {
       return 0;
     }
