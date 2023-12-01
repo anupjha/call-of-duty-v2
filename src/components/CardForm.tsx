@@ -1,67 +1,59 @@
-import { useEffect, useRef, useState } from "preact/hooks"
-import { JSX } from "preact/jsx-runtime"
-import { AddCardParams } from "./PageBoard"
+import { useEffect, useRef, useState } from "preact/hooks";
+import { JSX } from "preact/jsx-runtime";
+import { AddCardParams } from "./PageBoard";
 
-export default function CardForm(
-  {
-    listId,
-    addCard
-  }: {
-    listId: string
-    addCard: (params: AddCardParams) => void
-  }
-) {
-  const [editing, setEditing] = useState<boolean>(false)
-  const [composing, setComposing] = useState<boolean>(false)
-  const ref = useRef<HTMLTextAreaElement>(null)
+export default function CardForm({ listId, addCard }: { listId: string; addCard: (params: AddCardParams) => void }) {
+  const [editing, setEditing] = useState<boolean>(false);
+  const [composing, setComposing] = useState<boolean>(false);
+  const [textAreaValue, setTextAreaValue] = useState<string>(new Date().toLocaleDateString() + " - ");
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (editing) {
-      ref.current?.focus()
+      ref.current?.setSelectionRange(14, 14);
+      ref.current?.focus();
     }
-  }, [editing])
+  }, [editing]);
 
   const handleBlur = () => {
-    setEditing(false)
-  }
+    setEditing(false);
+  };
   const handleClick = () => {
-    setEditing(true)
-  }
+    setEditing(true);
+  };
   const handleKeyDown = (e: JSX.TargetedKeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !composing) {
-      e.preventDefault()
+    if (e.key === "Enter" && !composing) {
+      e.preventDefault();
       if (ref.current?.value) {
-        addCard({ listId: listId, cardName: ref.current?.value })
-        ref.current.value = ''
+        addCard({ listId: listId, cardName: ref.current?.value });
+        ref.current.value = new Date().toLocaleDateString() + " - ";
       }
     }
-  }
+  };
   const handleCompositionStart = () => {
-    setComposing(true)
-  }
+    setComposing(true);
+  };
   const handleCompositionEnd = () => {
-    setComposing(false)
-  }
+    setComposing(false);
+  };
 
   return (
-    <button
-      class="h-8 w-full border-none text-left cursor-pointer bg-primary"
-      onClick={handleClick}
-    >
-      {editing
-        ?
+    <button class="h-8 w-full border-none text-left cursor-pointer bg-primary" onClick={handleClick}>
+      {editing ? (
         <textarea
           class="w-full border-none rounded-1 p-2 resize-none text-medium font-sans-serif"
           onBlur={handleBlur}
+          defaultValue={textAreaValue}
+          // placeholder={currentDate}
           // @ts-ignore
           oncompositionstart={handleCompositionStart}
           oncompositionend={handleCompositionEnd}
           onKeyDown={handleKeyDown}
           ref={ref}
         />
-        :
-        <div class="px-2">+ Add a card</div>
-      }
+      ) : (
+        <div class="px-2">+ Add log</div>
+      )}
     </button>
-  )
+  );
 }
