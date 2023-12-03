@@ -55,6 +55,7 @@ import {
 import DropDown, { DropDownItem } from "../components/DropDown";
 import { getSelectedNode } from "../utils/getSelectedNode";
 import { sanitizeUrl } from "../utils/url";
+import { JSX } from "preact/jsx-runtime";
 
 const blockTypeToBlockName = {
   bullet: "Bulleted List",

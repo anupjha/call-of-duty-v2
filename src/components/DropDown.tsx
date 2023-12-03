@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
-import * as React from "preact";
+import React, { JSX, ReactNode } from "preact/compat";
 import { createPortal } from "preact/compat";
-import ReactNode from "preact";
 
 type DropDownContextType = {
   registerItem: (ref: React.RefObject<HTMLButtonElement>) => void;
@@ -17,7 +16,7 @@ export function DropDownItem({
 }: {
   children: React.ReactNode;
   className: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (event: any) => void;
   title?: string;
 }) {
   const ref = useRef<HTMLButtonElement>(null);
@@ -62,7 +61,7 @@ function DropDownItems({
     [setItems]
   );
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: any) => {
     if (!items) return;
 
     const key = event.key;

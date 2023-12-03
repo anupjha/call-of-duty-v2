@@ -1,5 +1,5 @@
 import React from "preact";
-import { useState } from "preact/hooks";
+import { useRef, useState } from "preact/hooks";
 import MinimalTheme from "./themes/MinimalTheme";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -52,11 +52,12 @@ const editorConfig = {
 const Editor = () => {
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
-  const onRef = (_floatingAnchorElem: HTMLDivElement) => {
-    if (_floatingAnchorElem !== null) {
-      setFloatingAnchorElem(_floatingAnchorElem);
-    }
-  };
+  const onRef = useRef<HTMLIFrameElement>(null);
+  // const onRef = (_floatingAnchorElem: HTMLDivElement) => {
+  //   if (_floatingAnchorElem !== null) {
+  //     setFloatingAnchorElem(_floatingAnchorElem);
+  //   }
+  // };
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
