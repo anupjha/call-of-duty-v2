@@ -28,8 +28,14 @@ export default function TheNavBar({ theme }: { theme: Signal<Theme> }) {
       </div>
       <div class="f-1 h-6 text-right">
         <div class="layout-stack-horizontal-1">
+          <Link href="/" class="text-decoration-none text-secondary text-small hover px-2 py-1">
+            Board
+          </Link>
           <Link href="/todo" class="text-decoration-none text-secondary text-small hover px-2 py-1">
             Todo
+          </Link>
+          <Link href="/note" class="text-decoration-none text-secondary text-small hover px-2 py-1">
+            Note
           </Link>
           <AppButton text={theme.value === "light" ? "Light" : "Dark"} onClick={handleClick} />
         </div>

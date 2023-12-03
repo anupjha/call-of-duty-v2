@@ -2,6 +2,7 @@ import { render } from "preact";
 import { Route } from "wouter-preact";
 import PageIndex from "./components/PageIndex.tsx";
 import { Todo } from "./Todo.tsx";
+import Editor from "./Editor.tsx";
 import PageBoard from "./components/PageBoard.tsx";
 import PageComponents from "./components/PageComponents.tsx";
 import PageDebug from "./components/PageDebug.tsx";
@@ -44,6 +45,9 @@ function Main() {
         </Route>
         <Route path="/todo">
           <Todo />
+        </Route>
+        <Route path="/note">
+          <Editor />
         </Route>
         <Route path="/board/:boardId">{(params) => <PageBoard appState={appState} boardId={params.boardId} />}</Route>
         <Route path="/board/:boardId/card/:cardId">
